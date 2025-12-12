@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aadya — Singer Portfolio</title>
+  <meta name="description" content="Singer portfolio: concerts, bio, and contact." />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#ff6b81;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,#071024 0%,#081428 60%), var(--bg); color:#e6eef6; -webkit-font-smoothing:antialiased}
+    header{backdrop-filter: blur(6px); background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border-bottom:1px solid rgba(255,255,255,0.03); position:sticky; top:0; z-index:50}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+    .brand .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#845ef7);display:flex;align-items:center;justify-content:center;font-weight:800}
+    nav a{color:#dbe9f8;text-decoration:none;margin-left:16px;font-weight:600}
+    .hero{padding:56px 0;display:grid;grid-template-columns:1fr 380px;gap:36px;align-items:center}
+    .hero .bio{background:var(--card);padding:28px;border-radius:16px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+    h1{margin:0 0 8px 0;font-size:28px}
+    p.lead{color:var(--muted);line-height:1.6}
+    .cta{margin-top:18px}
+    .btn{background:var(--accent);color:#fff;padding:10px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+    .profile-placeholder{width:100%;height:260px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));color:var(--muted);font-weight:700}
+    .stats{display:flex;gap:12px;margin-top:14px}
+    .stat{background:var(--glass);padding:8px 12px;border-radius:12px;font-weight:700}
+    .section{padding:52px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .concert-card{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.03)}
+    .concert-date{font-weight:700;color:var(--accent);font-size:14px}
+    footer{padding:28px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)}
+    /* Contact */
+    form .row{display:flex;gap:12px}
+    input, textarea, select{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    textarea{min-height:120px}
+    label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
+    /* Responsive */
+    @media (max-width:900px){.hero{grid-template-columns:1fr;}.grid{grid-template-columns:repeat(2,1fr)}.container{padding:18px}}
+    @media (max-width:560px){.grid{grid-template-columns:1fr}.nav a{display:none}}
+    .small{font-size:13px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" id="brand-initial">A</div>
+        <div>
+          <div id="brand-name" style="font-size:14px;opacity:0.9">Aadya</div>
+          <div id="brand-sub" style="font-size:11px;color:var(--muted)">Singer & Pop Artist</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#home" data-link>Home</a>
+        <a href="#about" data-link>About</a>
+        <a href="#concerts" data-link>Concerts</a>
+        <a href="#contact" data-link>Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="app">
+
+    
+    <section id="home" class="section" aria-label="Home">
+      <div class="hero">
+        <div class="bio card">
+          <h1 id="singer-name">Aadya — Pop singer & performer</h1>
+          <p id="singer-bio" class="lead">Hi — I'm Aadya, a pop vocalist blending semi-classical Indian training with contemporary English and Hindi pop. I write, perform, and love connecting with audiences through energetic live shows.</p>
+          <div class="stats">
+            <div class="stat" id="stat-dance">7 yrs dancing</div>
+            <div class="stat" id="stat-singing">10 yrs singing</div>
+            <div class="stat" id="stat-shows">~30 shows</div>
+          </div>
+          <div class="cta">
+            <button class="btn" onclick="scrollToSection('concerts')">See concerts</button>
+          </div>
+        </div>
+
+        <aside style="width:100%">
+          <div class="card">
+            <div class="profile-placeholder" id="profile-placeholder">No image — profile uses text details</div>
+            <h3 style="margin-top:12px" id="latest-single">Latest single: "Midnight Streets"</h3>
+            <p id="latest-desc" style="color:var(--muted);margin:6px 0 12px 0">A soulful pop track mixing Hindi hooks and English verses. Released: Jan 2025.</p>
+            <div style="display:flex;gap:8px">
+              <button class="btn" onclick="alert('Play sample — placeholder')">Play sample</button>
+              <button class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.06)" onclick="scrollToSection('contact')">Book a show</button>
+            </div>
+          </div>
+
+          
+          <div class="card" style="margin-top:12px">
+            <h4>Enter singer data (fill &amp; press Update)</h4>
+            <div style="margin-top:8px">
+              <label>Name</label>
+              <input id="input-name" placeholder="Singer name (e.g., Aadya)" value="aadya">
+            </div>
+            <div style="margin-top:8px">
+              <label>Short bio</label>
+              <textarea id="input-bio" placeholder="Short bio (1-2 sentences)">aadya, indian pop singer trynna find her favourite genre by learning everything! But basically blending clasiical training with modern English-Hindi fusion.</textarea>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <div style="flex:1"><label>Years dancing</label><input id="input-dance" placeholder="e.g., 7" value="7"/></div>
+              <div style="flex:1"><label>Years singing</label><input id="input-sing" placeholder="e.g., 10" value="10"/></div>
+            </div>
+            <div style="margin-top:8px"><label>Approx. shows</label><input id="input-shows" placeholder="e.g., 30" value="11"/></div>
+            <div style="margin-top:8px"><label>Latest single (title)</label><input id="input-single" placeholder="e.g., Midnight Streets" value="Midnight Streets"/></div>
+            <div style="margin-top:8px"><label>Latest single description</label><input id="input-single-desc" placeholder="Short line about the single" value="A bilingual pop track mixing soft vocals with upbeat production. Released March 2025"/></div>
+            <div style="margin-top:8px"><label>Concerts (one per line, CSV: date|title|venue|tickets|desc)</label>
+              <textarea id="input-concerts" placeholder="2025-02-14|Valentine Live|Blue Note, Bengaluru|Limited|An intimate acoustic set">2025-02-14 | Valentine Live | Blue Note, Bengaluru | Limited | Acoustic love-song special show.</textarea>|Valentine Live|Blue Note, Bengaluru|Limited|An intimate acoustic set"></textarea>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:10px">
+              <button class="btn" onclick="applyData()">Update</button>
+              <button class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.06)" onclick="loadSample()">Load sample</button>
+            </div>
+            <div id="form-msg" class="small" style="margin-top:8px"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    
+    <section id="about" class="section">
+      <div class="card">
+        <h2>About <span id="about-name">Aadya</span></h2>
+        <p id="about-bio" class="lead">Raised in India, trained semi-classically with a love for modern pop production. My stage energy is built from years of dance and vocal training. I write my own songs and collaborate with producers to create bilingual pop that connects across audiences.</p>
+
+        <h3 style="margin-top:18px">Musical profile</h3>
+        <ul style="color:var(--muted)">
+          <li id="profile-vocal">Vocal style: Pop / Semi-classical fusion</li>
+          <li id="profile-lang">Languages: English &amp; Hindi</li>
+          <li id="profile-inst">Instruments: Vocals, basic guitar</li>
+          <li id="profile-genre">Genres: Pop, indie-pop, acoustic-pop</li>
+        </ul>
+
+        <h3 style="margin-top:18px">Highlights</h3>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <div class="stat">Passed India's Superstar audition</div>
+          <div class="stat">Hosted SNL-style show</div>
+          <div class="stat">Multiple campus headliner shows</div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="concerts" class="section">
+      <h2>Concerts &amp; Shows</h2>
+      <p style="color:var(--muted)">A curated list of live shows and special performances. Click a show to see details.</p>
+
+      <div id="concert-grid" class="grid" style="margin-top:18px"></div>
+
+      <template id="concert-template">
+        <article class="concert-card">
+          <div style="display:flex;justify-content:space-between;align-items:start">
+            <div>
+              <div class="concert-date"></div>
+              <h4 class="concert-title" style="margin:8px 0 6px 0"></h4>
+              <div class="concert-venue" style="color:var(--muted);font-size:14px"></div>
+            </div>
+            <div style="font-size:12px;color:var(--muted);">Tickets: <span class="concert-tickets"></span></div>
+          </div>
+          <p class="concert-desc" style="color:var(--muted);margin-top:10px"></p>
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <button class="btn" onclick="alert('Share — placeholder')">Share</button>
+            <button class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.06)" onclick="openDetails(this)">Details</button>
+          </div>
+        </article>
+      </template>
+
+    </section>
+
+    
+    <section id="contact" class="section">
+      <h2>Contact / Bookings</h2>
+      <div class="card" style="margin-top:12px">
+        <form id="contact-form" onsubmit="submitForm(event)">
+          <div class="row">
+            <div style="flex:1"><label>Name</label><input id="name" required></div>
+            <div style="flex:1"><label>Email</label><input id="email" type="email" required></div>
+          </div>
+          <div style="margin-top:12px"><label>Message</label><textarea id="message" placeholder="Tell us about the event, date, location..." required></textarea></div>
+          <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+            <button class="btn" type="submit">Send message</button>
+            <div id="form-status" style="color:var(--muted)"></div>
+          </div>
+        </form>
+      </div>
+
+      <div style="margin-top:18px;color:var(--muted)">
+        <strong>Manager:</strong> bookings@aadya.example (placeholder)
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+      <div>© <span id="footer-name">Aadya</span> — Singer • Built with ♥</div>
+      <div style="color:var(--muted)">Follow: Instagram • YouTube • Spotify (placeholders)</div>
+    </div>
+  </footer>
+
+  <script>
+    // Data holder
+    let concerts = [];
+
+    function renderConcerts(){
+      const grid = document.getElementById('concert-grid');
+      const template = document.getElementById('concert-template');
+      grid.innerHTML = '';
+      if(concerts.length === 0){
+        grid.innerHTML = '<div class="card small">No concerts yet — add some using the form on the right.</div>';
+        return;
+      }
+      concerts.forEach((c,i)=>{
+        const node = template.content.cloneNode(true);
+        node.querySelector('.concert-date').textContent = formatDate(c.date);
+        node.querySelector('.concert-title').textContent = c.title;
+        node.querySelector('.concert-venue').textContent = c.venue;
+        node.querySelector('.concert-tickets').textContent = c.tickets || 'TBA';
+        node.querySelector('.concert-desc').textContent = c.desc || '';
+        node.querySelector('article').setAttribute('data-index', i);
+        grid.appendChild(node);
+      })
+    }
+
+    function formatDate(iso){
+      try{
+        const d = new Date(iso + 'T00:00:00');
+        return d.toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'});
+      }catch(e){return iso}
+    }
+
+    function openDetails(button){
+      const art = button.closest('article');
+      const idx = art.getAttribute('data-index');
+      const c = concerts[idx];
+      alert(`${c.title}
+${formatDate(c.date)} — ${c.venue}
+
+${c.desc || ''}`);
+    }
+
+    function submitForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const status = document.getElementById('form-status');
+      if(!name || !email || !message){ status.textContent = 'Please fill all fields.'; return; }
+      status.textContent = 'Sending...';
+      setTimeout(()=>{ status.textContent = 'Message sent — we will be in touch!'; document.getElementById('contact-form').reset(); },900);
+    }
+
+    function applyData(){
+      const name = document.getElementById('input-name').value.trim();
+      const bio = document.getElementById('input-bio').value.trim();
+      const dance = document.getElementById('input-dance').value.trim();
+      const sing = document.getElementById('input-sing').value.trim();
+      const shows = document.getElementById('input-shows').value.trim();
+      const single = document.getElementById('input-single').value.trim();
+      const singleDesc = document.getElementById('input-single-desc').value.trim();
+      const concertsRaw = document.getElementById('input-concerts').value.trim();
+
+      if(name){
+        document.getElementById('singer-name').textContent = name + ' — Pop singer & performer';
+        document.getElementById('brand-name').textContent = name;
+        document.getElementById('about-name').textContent = name;
+        document.getElementById('footer-name').textContent = name;
+        document.getElementById('brand-initial').textContent = name.charAt(0).toUpperCase();
+      }
+      if(bio){
+        document.getElementById('singer-bio').textContent = bio;
+        document.getElementById('about-bio').textContent = bio;
+      }
+      if(dance) document.getElementById('stat-dance').textContent = `${dance} yrs dancing`;
+      if(sing) document.getElementById('stat-singing').textContent = `${sing} yrs singing`;
+      if(shows) document.getElementById('stat-shows').textContent = `~${shows} shows`;
+      if(single) document.getElementById('latest-single').textContent = `Latest single: "${single}"`;
+      if(singleDesc) document.getElementById('latest-desc').textContent = singleDesc;
+
+      // Parse concerts: each line: date|title|venue|tickets|desc
+      if(concertsRaw){
+        const lines = concertsRaw.split('').map(l=>l.trim()).filter(Boolean);
+        const parsed = [];
+        for(const ln of lines){
+          const parts = ln.split('|').map(p=>p.trim());
+          // fallback for short entries
+          parsed.push({date: parts[0] || '', title: parts[1] || parts[0] || 'Untitled', venue: parts[2] || '', tickets: parts[3] || '', desc: parts[4] || ''});
+        }
+        concerts = parsed;
+        document.getElementById('form-msg').textContent = `Added ${concerts.length} concert(s).`;
+      }
+      renderConcerts();
+    }
+
+    function loadSample(){
+      document.getElementById('input-name').value = 'Aadya';
+      document.getElementById('input-bio').value = "Semi-classically trained pop singer blending Hindi & English with high-energy live shows.";
+      document.getElementById('input-dance').value = '7';
+      document.getElementById('input-sing').value = '10';
+      document.getElementById('input-shows').value = '30';
+      document.getElementById('input-single').value = 'Midnight Streets';
+      document.getElementById('input-single-desc').value = 'A bilingual pop single — released Jan 2025.';
+      document.getElementById('input-concerts').value = '2024-12-03|Campus Night — MIT Manipal|Main Auditorium, MIT Manipal|Sold out|A high-energy campus headliner show with original singles and cover medleys.'
+"2025-02-14|Valentine Live — Blue Note|Blue Note, Bengaluru|Limited|An intimate acoustic set featuring love songs and two new singles.";
+      applyData();
+    }
+
+    function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+
+    // Hash-based routing
+    function handleHash(){
+      const hash = location.hash ? location.hash.replace('#','') : 'home';
+      document.querySelectorAll('main section').forEach(s=> s.style.display='none');
+      const el = document.getElementById(hash);
+      if(el) el.style.display='block';
+      document.title = `Singer — ${hash.charAt(0).toUpperCase()+hash.slice(1)}`;
+    }
+    window.addEventListener('hashchange', handleHash);
+
+    // Initialize with no concerts
+    renderConcerts();
+    // Auto-apply provided data on load
+    applyData();
+    handleHash();
+  </script>
+</body>
+</html>
